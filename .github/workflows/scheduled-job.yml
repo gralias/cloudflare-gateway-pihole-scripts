@@ -1,0 +1,16 @@
+name: Daily Cron Job
+on:
+  schedule:
+    # The cron syntax is UTC based. This example runs every day at 3:00 AM UTC.
+    - cron: '0 3 * * *' 
+jobs:
+  run-task:
+    # Use a GitHub-hosted runner
+    runs-on: ubuntu-latest 
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Run my script
+        run: |
+          echo "My cron job ran at $(date)!"
+          # Add your commands here
